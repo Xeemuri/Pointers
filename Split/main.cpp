@@ -1,4 +1,4 @@
-#include <iostream>
+ï»¿#include <iostream>
 using namespace std;
 
 
@@ -34,9 +34,9 @@ int main()
 		else odd[odd_count++] = arr[i];
 	}
 
-	cout << "×åòíûå ÷èñëà â ìàññèâå: ";
+	cout << "Ð§ÐµÑ‚Ð½Ñ‹Ðµ Ñ‡Ð¸ÑÐ»Ð° Ð² Ð¼Ð°ÑÑÐ¸Ð²Ðµ: ";
 	Print(even, even_count);
-	cout << "Íå÷åòíûå ÷èñëà â ìàññèâå: ";
+	cout << "ÐÐµÑ‡ÐµÑ‚Ð½Ñ‹Ðµ Ñ‡Ð¸ÑÐ»Ð° Ð² Ð¼Ð°ÑÑÐ¸Ð²Ðµ: ";
 	Print(odd, odd_count);
 
 	delete[] even;
