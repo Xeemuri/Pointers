@@ -5,7 +5,7 @@ using namespace std;
 
 void FillRand(int arr[], const int n);
 void Print(int arr[], const int n);
-void AddValue(int*& arr, int& n, int value);
+int* push_back(int arr[], int& n); //добавляет значение в конец массива
 
 void main()
 {
@@ -18,8 +18,8 @@ void main()
 
 	//добавление значения в конец массива:
 	int value;
-	cout << "Введите добавляемое значение: "; cin >> value;
-	AddValue(arr, n, value);
+	
+	arr = push_back(arr, n);
 	Print(arr, n);
 	delete[] arr;
 	
@@ -41,8 +41,10 @@ void Print(int arr[], const int n)
 	cout << endl;
 }
 
-void AddValue(int*& arr, int& n, int value)
+int* push_back(int arr[], int& n)
 {
+	int value;
+	cout << "Введите добавляемое значение: "; cin >> value;
 	int* buffer = new int[n+1];
 
 	for (int i = 0; i < n; i++)
@@ -55,4 +57,5 @@ void AddValue(int*& arr, int& n, int value)
 	arr = buffer;
 
 	n++;
+	return arr;
 }
