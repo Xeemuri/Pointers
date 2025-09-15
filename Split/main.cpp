@@ -17,8 +17,7 @@ int main()
 	for (int i = 0; i < n; i++)
 	{
 		arr[i] = rand() % 100;
-		if (arr[i] % 2 == 0) even_count++;
-		else odd_count++;
+		(arr[i] % 2 == 0 ? even_count: odd_count)++;
 	}
 	
 	Print(arr, n);
@@ -26,12 +25,9 @@ int main()
 	int* even = new int[even_count];
 	int* odd = new int[odd_count];
 
-	even_count = odd_count = 0;
-
-	for (int i = 0; i < n; i++)
+	for (int i = 0, j = 0, k = 0; i < n; i++)
 	{
-		if (arr[i] % 2 == 0) even[even_count++] = arr[i];
-		else odd[odd_count++] = arr[i];
+		(arr[i] % 2 == 0 ? even[j++] : odd[k++]) = arr[i];
 	}
 
 	cout << "Четные числа в массиве: ";

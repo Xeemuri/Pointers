@@ -22,6 +22,7 @@ void main()
 	AddValue(arr, n, value);
 	Print(arr, n);
 	delete[] arr;
+	
 }
 void FillRand(int arr[], const int n)
 {
@@ -42,14 +43,16 @@ void Print(int arr[], const int n)
 
 void AddValue(int*& arr, int& n, int value)
 {
-	n++;
-	int* new_arr = new int[n];
+	int* buffer = new int[n+1];
 
-	for (int i = 0; i < n-1; i++)
+	for (int i = 0; i < n; i++)
 	{
-		new_arr[i] = arr[i];
+		buffer[i] = arr[i];
 	}
-	new_arr[n-1] = value;
+	buffer[n] = value;
 
-	arr = new_arr;
+	delete[] arr;
+	arr = buffer;
+
+	n++;
 }
