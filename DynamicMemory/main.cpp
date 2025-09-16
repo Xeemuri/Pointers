@@ -5,10 +5,10 @@ using namespace std;
 
 void FillRand(int arr[], const int n);
 void Print(int arr[], const int n);
-int* push_back(int arr[], int& n); //добавляет значение в конец массива
-int* push_front(int arr[], int& n);
-int* insert(int arr[], int& n);
-int* erase(int arr[], int& n);
+void push_back(int*& arr, int& n);
+void push_front(int*& arr, int& n);
+void insert(int*& arr, int& n);
+void erase(int*& arr, int& n);
 
 void main()
 {
@@ -21,20 +21,19 @@ void main()
 
 	//добавление значения в конец массива:
 	int value;
-	
-	arr = push_back(arr, n);
+	push_back(arr, n);
 	Print(arr, n);
 
-	arr = push_front(arr, n);
+	push_front(arr, n);
 	Print(arr, n);
 
-	arr = insert(arr, n);
+	insert(arr, n);
 	Print(arr, n);
 
-	arr = erase(arr, n);
+	erase(arr, n);
 	Print(arr, n);
-
 	delete[] arr;
+
 }
 void FillRand(int arr[], const int n)
 {
@@ -53,11 +52,11 @@ void Print(int arr[], const int n)
 	cout << endl;
 }
 
-int* push_back(int arr[], int& n)
+void push_back(int*& arr, int& n)
 {
 	int value;
 	cout << "Введите добавляемое значение: "; cin >> value;
-	int* buffer = new int[n+1];
+	int* buffer = new int[n + 1];
 
 	for (int i = 0; i < n; i++)
 	{
@@ -69,18 +68,17 @@ int* push_back(int arr[], int& n)
 	arr = buffer;
 
 	n++;
-	return arr;
 }
 
-int* push_front(int arr[], int& n)
+void push_front(int*& arr, int& n)
 {
 	int value;
 	cout << "Введите добавляемое значение: "; cin >> value;
 	int* buffer = new int[n + 1];
 
-	for (int i = n; i > 0 ; i--)
+	for (int i = n; i > 0; i--)
 	{
-		buffer[i] = arr[i-1];
+		buffer[i] = arr[i - 1];
 	}
 	buffer[0] = value;
 
@@ -88,9 +86,9 @@ int* push_front(int arr[], int& n)
 	arr = buffer;
 
 	n++;
-	return arr;
 }
-int* insert(int arr[], int& n)
+
+void insert(int*& arr, int& n)
 {
 	int value, index;
 	cout << "Введите добавляемое значение: "; cin >> value;
@@ -108,24 +106,23 @@ int* insert(int arr[], int& n)
 	arr = buffer;
 
 	n++;
-	return arr;
 }
-int* erase(int arr[], int& n)
+
+void erase(int*& arr, int& n)
 {
 	int index;
 	cout << "Введите индекс для удаляемого значения: "; cin >> index;
 
 	int* buffer = new int[n - 1];
 
-	for (int i = 0; i < n-1; i++)
+	for (int i = 0; i < n - 1; i++)
 	{
 		if (i < index) buffer[i] = arr[i];
-		else buffer[i] = arr[i+1];
+		else buffer[i] = arr[i + 1];
 	}
 
 	delete[] arr;
 	arr = buffer;
 
 	n--;
-	return arr;
 }
