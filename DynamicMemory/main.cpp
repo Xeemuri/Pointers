@@ -211,8 +211,9 @@ int* erase(int arr[], int& n, int value, int index)
 	arr = pop_row_front(arr, rows, cols);
 	Print(arr, rows, cols);
 
-	cout << "Введите индекс строки для удаления: "; cin >> row_index;
-	arr = erase_row(arr, rows, cols, row_index);
+	int col_index;
+	cout << "Введите индекс столбца для удаления: "; cin >> col_index;
+	arr = erase_row(arr, rows, cols, col_index);
 	Print(arr, rows, cols);
 
 
