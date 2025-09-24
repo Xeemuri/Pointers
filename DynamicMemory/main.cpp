@@ -352,7 +352,6 @@ int** insert_row(int** arr, int& rows, const int cols, int row_index)
 
 void push_col_back(int** arr, const int rows, int& cols)
 {
-
 	for (int i = 0; i < rows; i++)
 	{
 		int* buffer = new int[cols+1] {};
@@ -422,14 +421,14 @@ int** erase_row(int** arr, int& rows, const int cols, int row_index)
 
 void pop_col_back(int** arr, const int rows, int& cols)
 {
+	cols--;
 	for (int i = 0; i < rows; i++)
 	{
-		int* buffer = new int [cols-1];
-		for (int j = 0; j < cols-1; j++) buffer[j] = arr[i][j];
+		int* buffer = new int [cols];
+		for (int j = 0; j < cols; j++) buffer[j] = arr[i][j];
 		delete[] arr[i];
 		arr[i] = buffer;
 	}
-	cols--;
 }
 void pop_col_front(int** arr, const int rows, int& cols)
 {
