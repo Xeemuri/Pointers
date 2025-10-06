@@ -271,17 +271,29 @@ template <typename T>T** insert_row(T** arr, int& rows, const int cols, int row_
 
 template<typename T> void push_col_back(T** arr, const int rows, int& cols)
 {
-	for (int i = 0; i < rows; i++) arr[i] = push_back(arr[i], cols, T()); cols--;
+	for (int i = 0; i < rows; i++)
+	{
+		arr[i] = push_back(arr[i], cols, T());
+		cols--;
+	}
 	cols++; //T() - значение по уммолчанию для шаблоннго типа
 }
 template<typename T> void push_col_front(T** arr, const int rows, int& cols)
 {
-	for (int i = 0; i < rows; i++) arr[i] = push_front(arr[i], cols, T()); cols--;
+	for (int i = 0; i < rows; i++)
+	{
+		arr[i] = push_front(arr[i], cols, T());
+		cols--;
+	}
 	cols++;
 }
 template<typename T>void insert_col(T** arr, const int rows, int& cols, int col_index)
 {
-	for (int i = 0; i < rows; i++) arr[i] = insert(arr[i], cols, T(), col_index); cols--;
+	for (int i = 0; i < rows; i++)
+	{
+		arr[i] = insert(arr[i], cols, T(), col_index);
+		cols--;
+	}
 	cols++;
 }
 
@@ -302,16 +314,28 @@ template<typename T>T** erase_row(T** arr, int& rows, const int cols, int row_in
 }
 template<typename T>void pop_col_back(T** arr, const int rows, int& cols)
 {
-	for (int i = 0; i < rows; i++) arr[i] = pop_back(arr[i], cols); cols++;
+	for (int i = 0; i < rows; i++)
+	{
+		arr[i] = pop_back(arr[i], cols);
+		cols++;
+	}
 	cols--;
 }
 template<typename T>void pop_col_front(T** arr, const int rows, int& cols)
 {
-	for (int i = 0; i < rows; i++) arr[i] = pop_front(arr[i], cols); cols++;
+	for (int i = 0; i < rows; i++)
+	{
+		arr[i] = pop_front(arr[i], cols);
+		cols++;
+	}
 	cols--;
 }
 template<typename T>void erase_col(T** arr, const int rows, int& cols, int col_index)
 {
-	for (int i = 0; i < rows; i++) arr[i] = erase(arr[i], cols, col_index); cols++;
+	for (int i = 0; i < rows; i++)
+	{
+		arr[i] = erase(arr[i], cols, col_index);
+		cols++;
+	}
 	cols--;
 }
